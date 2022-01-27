@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Repository.Entities;
+using APITechTest.Entities;
 
-namespace Repository.Repositories
+namespace APITechTest.Repositories
 {
     public class InMemPlayersRepository
     {
@@ -56,7 +56,7 @@ namespace Repository.Repositories
             return players;
         }
 
-        public Player GetItem(int id)
+        public Player GetPlayer(int id)
         {
             return players.SingleOrDefault(player => player.Id == id);
         }

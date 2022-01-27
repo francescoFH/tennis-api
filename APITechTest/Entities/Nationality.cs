@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Repository.Entities
+namespace APITechTest.Entities
 {
     public class Nationality
     {

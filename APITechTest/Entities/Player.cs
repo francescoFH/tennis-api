@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Repository.Entities
+namespace APITechTest.Entities
 {
     public class Player
     {
