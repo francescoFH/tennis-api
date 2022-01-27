@@ -34,8 +34,6 @@ namespace APITechTest
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APITechTest", Version = "v1" });
             });
-
-            services.AddDbContext<TennisContext>(options => options.UseSqlServer(Configuration["ConnectionString"]));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
