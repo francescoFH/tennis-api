@@ -4,20 +4,22 @@ namespace Repository.Entities
 {
     public class Player
     {
-        public int Id { get; set; }
+        public int Id { get; init; }
 
-        public string FirstName { get; set; }
+        public string FirstName { get; init; }
 
-        public string LastName { get; set; }
+        public string LastName { get; init; }
 
-        public int NationalityId { get; set; }
+        public int NationalityId { get; init; }
 
-        public Nationality Nationality { get; set; }
+        public Nationality Nationality { get; init; }
 
-        public DateTime BirthDate { get; set; }
+        public DateTime BirthDate { get; init; }
 
-        public int Points { get; set; }
+        public int Points { get; init; }
 
-        public int Games { get; set; }
+        public int Games { get; init; }
+
+        public DateTimeOffset CreatedDate { get; init; }
     }
 }
