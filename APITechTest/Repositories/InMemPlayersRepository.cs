@@ -5,7 +5,8 @@ using APITechTest.Entities;
 
 namespace APITechTest.Repositories
 {
-    public class InMemPlayersRepository
+
+    public class InMemPlayersRepository : IPlayersRepository
     {
         private readonly List<Player> players = new()
         {

@@ -10,11 +10,11 @@ namespace APITechTest.Controllers
     [Route("players")]
     public class PlayersController : ControllerBase
     {
-        private readonly InMemPlayersRepository repository;
+        private readonly IPlayersRepository repository;
 
-        public PlayersController()
+        public PlayersController(IPlayersRepository repository)
         {
-            repository = new InMemPlayersRepository();
+            this.repository = repository;
         }
 
         // GET /players
