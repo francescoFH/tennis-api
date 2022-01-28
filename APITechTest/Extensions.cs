@@ -1,7 +1,7 @@
 using APITechTest.Dtos;
 using APITechTest.Entities;
 
-namespace Catalog
+namespace APITechTest
 {
     public static class Extensions{
         public static PlayerDto AsDto(this Player player)

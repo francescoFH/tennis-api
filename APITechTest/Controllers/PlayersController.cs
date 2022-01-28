@@ -4,7 +4,6 @@ using System.Linq;
 using APITechTest.Dtos;
 using APITechTest.Entities;
 using APITechTest.Repositories;
-using Catalog;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APITechTest.Controllers
@@ -30,7 +29,7 @@ namespace APITechTest.Controllers
         
         // GET /players/id
         [HttpGet("{id}")]
-        public ActionResult<PlayerDto> GetPlayer(int id)
+        public ActionResult<PlayerDto> GetPlayer(Guid id)
         {
             var player = repository.GetPlayer(id);
 
@@ -40,6 +39,68 @@ namespace APITechTest.Controllers
             }
 
             return player.AsDto();
+        }
+
+        // POST /players
+        [HttpPost]
+        public ActionResult<PlayerDto> CreatePlayer(CreatePlayerDto playerDto)
+        {
+            Player player = new()
+            {
+                Id = Guid.NewGuid(),
+                FirstName = playerDto.FirstName,
+                LastName = playerDto.LastName,
+                Nationality = playerDto.Nationality,
+                BirthDate = playerDto.BirthDate,
+                Points = playerDto.Points,
+                Games = playerDto.Games
+            };
+
+            repository.CreatePlayer(player);
+
+            return CreatedAtAction(nameof(GetPlayer), new { id = player.Id}, player.AsDto());
+        }
+
+        // PUT /players/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdatePlayer(Guid id, UpdatePlayerDto playerDto)
+        {
+            var existingPlayer = repository.GetPlayer(id);
+
+            if (existingPlayer is null)
+            {
+                return NotFound();
+            }
+
+            Player updatedPlayer = existingPlayer with 
+            {
+                FirstName = playerDto.FirstName,
+                LastName = playerDto.LastName,
+                Nationality = playerDto.Nationality,
+                BirthDate = playerDto.BirthDate,
+                Points = playerDto.Points,
+                Games = playerDto.Games
+            };
+
+            repository.UpdatePlayer(updatedPlayer);
+
+            return NoContent();
+        }
+
+        // DELETE /players/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeletePlayer(Guid id)
+        {
+            var existingPlayer = repository.GetPlayer(id);
+
+            if (existingPlayer is null)
+            {
+                return NotFound();
+            }
+
+            repository.DeletePlayer(id);
+
+            return NoContent();
         }
     }
 }

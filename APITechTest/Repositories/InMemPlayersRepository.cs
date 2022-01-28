@@ -12,7 +12,7 @@ namespace APITechTest.Repositories
         {
             new Player
             {
-                Id = 1,
+                Id = Guid.NewGuid(),
                 FirstName = "Rafael",
                 LastName = "Nadal",
                 Nationality = "Spain",
@@ -22,7 +22,7 @@ namespace APITechTest.Repositories
             },
             new Player
             {
-                Id = 2,
+                Id = Guid.NewGuid(),
                 FirstName = "Novak",
                 LastName = "Djokovic",
                 Nationality = "Serbia",
@@ -32,7 +32,7 @@ namespace APITechTest.Repositories
             },
             new Player
             {
-                Id = 3,
+                Id = Guid.NewGuid(),
                 FirstName = "Roberto Bautista",
                 LastName = "Agut",
                 Nationality = "Spain",
@@ -42,7 +42,7 @@ namespace APITechTest.Repositories
             },
             new Player
             {
-                Id = 4,
+                Id = Guid.NewGuid(),
                 FirstName = "Jan-Lennard",
                 LastName = "Struff",
                 Nationality = "Germany",
@@ -57,9 +57,26 @@ namespace APITechTest.Repositories
             return players;
         }
 
-        public Player GetPlayer(int id)
+        public Player GetPlayer(Guid id)
         {
             return players.SingleOrDefault(player => player.Id == id);
+        }
+
+        public void CreatePlayer(Player player)
+        {
+            players.Add(player);
+        }
+
+        public void UpdatePlayer(Player player)
+        {
+            var index = players.FindIndex(existingPlayer => existingPlayer.Id == player.Id);
+            players[index] = player;
+        }
+
+        public void DeletePlayer(Guid id)
+        {
+            var index = players.FindIndex(existingPlayer => existingPlayer.Id == id);
+            players.RemoveAt(index);
         }
 
     }

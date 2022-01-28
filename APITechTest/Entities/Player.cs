@@ -4,7 +4,7 @@ namespace APITechTest.Entities
 {
     public record Player
     {
-        public int Id { get; init; }
+        public Guid Id { get; init; }
 
         public string FirstName { get; init; }
 
