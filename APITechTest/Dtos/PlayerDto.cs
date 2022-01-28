@@ -1,8 +1,8 @@
-﻿using System;
+using System;
 
-namespace APITechTest.Entities
+namespace APITechTest.Dtos
 {
-    public record Player
+    public record PlayerDto
     {
         public int Id { get; init; }
 

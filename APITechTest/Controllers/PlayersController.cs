@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using APITechTest.Dtos;
 using APITechTest.Entities;
 using APITechTest.Repositories;
+using Catalog;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APITechTest.Controllers
@@ -19,15 +22,15 @@ namespace APITechTest.Controllers
 
         // GET /players
         [HttpGet]
-        public IEnumerable<Player> GetPlayers()
+        public IEnumerable<PlayerDto> GetPlayers()
         {
-            var players = repository.GetPlayers();
+            var players = repository.GetPlayers().Select(player => player.AsDto());            
             return players;
         }
         
         // GET /players/id
         [HttpGet("{id}")]
-        public ActionResult<Player> GetPlayer(int id)
+        public ActionResult<PlayerDto> GetPlayer(int id)
         {
             var player = repository.GetPlayer(id);
 
@@ -36,7 +39,7 @@ namespace APITechTest.Controllers
                 return NotFound();
             }
 
-            return player;
+            return player.AsDto();
         }
     }
 }
