@@ -55,6 +55,13 @@ namespace APITechTest.Controllers
                 Points = playerDto.Points,
                 Games = playerDto.Games
             };
+            
+            var players = repository.GetPlayers().Select(player => player.AsDto());
+            var exists=players.Any(x=>x.FirstName==playerDto.FirstName&&x.LastName==playerDto.LastName);
+            if(exists)
+            {
+                return BadRequest("Player is already regitstered.");
+            }  
 
             repository.CreatePlayer(player);
 
@@ -81,6 +88,14 @@ namespace APITechTest.Controllers
                 Points = playerDto.Points,
                 Games = playerDto.Games
             };
+
+            var today = DateTime.Today;
+            var PlayerAge = today.Year - playerDto.BirthDate.Year;
+            
+            if (PlayerAge is < 16)
+            {
+                return BadRequest("Player has to be 16 years old.");
+            }
 
             repository.UpdatePlayer(updatedPlayer);
 
