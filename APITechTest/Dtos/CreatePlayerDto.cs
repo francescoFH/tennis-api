@@ -21,10 +21,8 @@ namespace APITechTest.Dtos
         [Required]
         public DateTime BirthDate { get; init; }
         
-        [Required]
-        [Range(1200, 999999)]
-        public int Points { get; init; }
+        // public int Points { get; init; }
 
-        public int Games { get; init; }
+        // public int Games { get; init; }
     }
 }

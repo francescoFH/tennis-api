@@ -52,8 +52,8 @@ namespace APITechTest.Controllers
                 LastName = playerDto.LastName,
                 Nationality = playerDto.Nationality,
                 BirthDate = playerDto.BirthDate,
-                Points = playerDto.Points,
-                Games = playerDto.Games
+                Points = 1200,
+                Games = 0
             };
             
             var players = repository.GetPlayers().Select(player => player.AsDto());
