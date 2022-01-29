@@ -63,6 +63,14 @@ namespace APITechTest.Controllers
                 return BadRequest("Player is already regitstered.");
             }  
 
+            var today = DateTime.Today;
+            var PlayerAge = today.Year - playerDto.BirthDate.Year;
+                    
+            if (PlayerAge is < 16)
+            {
+                return BadRequest("Player has to be 16 years old.");
+            }
+
             repository.CreatePlayer(player);
 
             return CreatedAtAction(nameof(GetPlayer), new { id = player.Id}, player.AsDto());
