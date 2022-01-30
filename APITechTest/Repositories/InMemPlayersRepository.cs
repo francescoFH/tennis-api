@@ -10,6 +10,7 @@ namespace APITechTest.Repositories
     {
         private readonly List<Player> players = new()
         {
+
             new Player
             {
                 Id = Guid.NewGuid(),
@@ -29,6 +30,7 @@ namespace APITechTest.Repositories
                 BirthDate = DateTime.Parse("1987-05-22"),
                 Points = 11015,
                 Games = 1188
+
             },
             new Player
             {

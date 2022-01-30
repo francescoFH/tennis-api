@@ -15,7 +15,7 @@ namespace APITechTest
                 BirthDate = player.BirthDate,
                 Points = player.Points,
                 Games = player.Games,
-                // Rank = "Bronze"
+                Rank = player.GetRank()
             };
         }
     }
