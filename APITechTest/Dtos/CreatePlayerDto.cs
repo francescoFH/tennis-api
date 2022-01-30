@@ -16,6 +16,5 @@ namespace APITechTest.Dtos
 
         [Required]
         public DateTime BirthDate { get; init; }
-        // public string Rank { get; internal set; }
     }
 }

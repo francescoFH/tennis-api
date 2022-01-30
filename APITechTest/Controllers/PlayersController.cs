@@ -50,6 +50,15 @@ namespace APITechTest.Controllers
             return players;
         }
 
+         // GET /players/rank
+        [HttpGet]
+        [Route("rank/{rank}")]
+        public IEnumerable<PlayerDto> GetPlayersByRank(String rank)
+        {
+            var players = repository.GetPlayersByRank(rank).Select(player => player.AsDto());
+            return players;
+        }
+
         // POST /players
         [HttpPost]
         public ActionResult<PlayerDto> CreatePlayer(CreatePlayerDto playerDto)
@@ -62,7 +71,7 @@ namespace APITechTest.Controllers
                 Nationality = playerDto.Nationality,
                 BirthDate = playerDto.BirthDate,
                 Points = 1200,
-                Games = 0
+                Games = 0               
             };
             
             var players = repository.GetPlayers().Select(player => player.AsDto());
