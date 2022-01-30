@@ -13,5 +13,6 @@ namespace APITechTest.Dtos
         public DateTime BirthDate { get; init; }
         public int Points { get; init; }
         public int Games { get; init; }
+        // public string Rank { get; init; }
     }
 }

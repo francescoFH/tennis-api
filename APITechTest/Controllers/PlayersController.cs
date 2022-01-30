@@ -41,6 +41,15 @@ namespace APITechTest.Controllers
             return player.AsDto();
         }
 
+         // GET /players/nationality
+        [HttpGet]
+        [Route("nationality/{nationality}")]
+        public IEnumerable<PlayerDto> GetPlayersByNationality(String nationality)
+        {
+            var players = repository.GetPlayersByNationality(nationality).Select(player => player.AsDto());
+            return players;
+        }
+
         // POST /players
         [HttpPost]
         public ActionResult<PlayerDto> CreatePlayer(CreatePlayerDto playerDto)

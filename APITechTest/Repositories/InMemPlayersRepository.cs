@@ -56,6 +56,10 @@ namespace APITechTest.Repositories
         {
             return players;
         }
+        public IEnumerable<Player> GetPlayersByNationality(String nationality)
+        {
+            return players.Where(player => player.Nationality == nationality);
+        }
 
         public Player GetPlayer(Guid id)
         {

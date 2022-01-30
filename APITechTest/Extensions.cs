@@ -14,7 +14,8 @@ namespace APITechTest
                 Nationality = player.Nationality,
                 BirthDate = player.BirthDate,
                 Points = player.Points,
-                Games = player.Games
+                Games = player.Games,
+                // Rank = "Bronze"
             };
         }
     }
