@@ -35,6 +35,16 @@ namespace APITechTest.Repositories
             new Player
             {
                 Id = Guid.NewGuid(),
+                FirstName = "Pablo Carreno",
+                LastName = "Busta",
+                Nationality = "Spain",
+                BirthDate = DateTime.Parse("1991-07-12"),
+                Points = 2305,
+                Games = 419
+            },
+            new Player
+            {
+                Id = Guid.NewGuid(),
                 FirstName = "Roberto Bautista",
                 LastName = "Agut",
                 Nationality = "Spain",
@@ -56,16 +66,16 @@ namespace APITechTest.Repositories
 
         public IEnumerable<Player> GetPlayers()
         {
-            return players;
+            return players.OrderByDescending(x => x.Points);
         }
         public IEnumerable<Player> GetPlayersByNationality(String nationality)
         {
-            return players.Where(player => player.Nationality == nationality);
+            return players.OrderByDescending(x => x.Points).Where(player => player.Nationality == nationality);
         }
 
         public IEnumerable<Player> GetPlayersByRank(String rank)
         {
-            return players.Where(player => player.GetRank() == rank);
+            return players.OrderByDescending(x => x.Points).Where(player => player.GetRank() == rank);
         }        
             
         public Player GetPlayer(Guid id)
