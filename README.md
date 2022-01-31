@@ -43,13 +43,13 @@ Supersonic Legend | 10000 - no limit
 - The business logic behind calculating new player scores after a match should be unit-tested
 
 4. **Database** - To obtained an MVP of my project to present on time, I decided to use an "InMemoryRepository" for tennis players. I will implement a simple MongoDB repository after completing point 3.
-5. To extract logic from controller, such as function to check uniqueness First Name/Last Name and function to check minimum age allowed
+5. To extract logic from the player-controller, such as the function to check uniqueness First Name/Last Name and function to check minimum age allowed
 
 How to Run the API(Locally)
 ----
 ```
 1. Type on the command line: git clone https://github.com/francescoFH/tennis-api.git
-2. Open the project on VirtualStudioCode (C# and Chrome debugger extensions must be installed)
+2. Open the project on VisualStudioCode (C# and Chrome debugger extensions must be installed)
 3. Run Build Task (press SHIFT+COMMAND+B)
 4. Run the project (press F5)
 5. This url will be displayed: https://localhost:5001/swagger/index.html - (swagger UI)
