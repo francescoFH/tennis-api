@@ -5,13 +5,15 @@ Your responsibilities include managing its players and their rankings.\
 You’ve been asked to prepare an API (using the ASP.NET Core Web API technology) consisting of the following endpoints:
 
 1. An endpoint for registering a new player into the club ✅
-- The only required data for registration is the player’s first name and last name, nationality and date of birth ✅
+- The only required data for registration is the player’s first name and last name, nationality and\
+ date of birth ✅
 - No two players of the same first name and last name can be added ✅
 - Players must be at least 16 years old to be able to enter the club ✅
 - Each newly registered player should start with the score of 1200 points for the purpose of the ranking ✅
 
 2. An endpoint listing all players in the club ✅
-- It should be possible to list only players of a particular nationality and/or rank name (see below) or all players ✅
+- It should be possible to list only players of a particular nationality and/or rank name (see below)\
+ or all players ✅
 
 **Rank** | **Points**
 --- | ---
