@@ -18,5 +18,14 @@ namespace APITechTest
                 Rank = player.GetRank()
             };
         }
+
+        public static MatchDto AsDto(this Match match)
+        {
+            return new MatchDto
+            {
+                Id = match.Id,
+                MatchDate = match.MatchDate
+            };
+        }
     }
 }

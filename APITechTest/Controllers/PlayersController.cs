@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using APITechTest.Dtos;
 using APITechTest.Entities;
-using APITechTest.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APITechTest.Controllers

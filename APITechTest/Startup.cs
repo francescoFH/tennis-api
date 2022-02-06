@@ -29,6 +29,7 @@ namespace APITechTest
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IPlayersRepository, InMemPlayersRepository>();
+            services.AddSingleton<IMatchesRepository, InMemMatchesRepository>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
