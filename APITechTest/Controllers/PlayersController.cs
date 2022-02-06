@@ -74,19 +74,14 @@ namespace APITechTest.Controllers
                 Games = 0               
             };
             
-            var players = repository.GetPlayers().Select(player => player.AsDto());
-            var exists=players.Any(x=>x.FirstName==playerDto.FirstName&&x.LastName==playerDto.LastName);
-            if(exists)
+            if(repository.isAlreadyRegistered(player))
             {
-                return BadRequest("Player is already regitstered.");
+                return BadRequest("Player is already registered.");
             }  
-
-            var today = DateTime.Today;
-            var PlayerAge = today.Year - playerDto.BirthDate.Year;
                     
-            if (PlayerAge is < 16)
+            if(!repository.isOldEnough(player))
             {
-                return BadRequest("Player has to be 16 years old.");
+                return BadRequest("Players must be at least 16 years old.");
             }
 
             repository.CreatePlayer(player);
@@ -110,17 +105,19 @@ namespace APITechTest.Controllers
                 FirstName = playerDto.FirstName,
                 LastName = playerDto.LastName,
                 Nationality = playerDto.Nationality,
-                BirthDate = playerDto.BirthDate,
-                Points = playerDto.Points,
-                Games = playerDto.Games
+                BirthDate = playerDto.BirthDate
+                // Points = playerDto.Points,
+                // Games = playerDto.Games
             };
 
-            var today = DateTime.Today;
-            var PlayerAge = today.Year - playerDto.BirthDate.Year;
-            
-            if (PlayerAge is < 16)
+            if(repository.isAlreadyRegistered(updatedPlayer))
             {
-                return BadRequest("Player has to be 16 years old.");
+                return BadRequest("Player is already registered.");
+            } 
+
+            if(!repository.isOldEnough(updatedPlayer))
+            {
+                return BadRequest("Players must be at least 16 years old.");
             }
 
             repository.UpdatePlayer(updatedPlayer);

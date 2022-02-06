@@ -11,4 +11,6 @@ public interface IPlayersRepository
         void CreatePlayer(Player player);
         void UpdatePlayer(Player player);
         void DeletePlayer(Guid id);
+        Boolean isOldEnough(Player player);
+        Boolean isAlreadyRegistered(Player player);
     }

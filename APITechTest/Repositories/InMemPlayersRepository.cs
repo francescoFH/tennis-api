@@ -100,5 +100,29 @@ namespace APITechTest.Repositories
             players.RemoveAt(index);
         }
 
+        public Boolean isOldEnough(Player player)
+        {
+            var today = DateTime.Today;
+            var PlayerAge = today.Year - player.BirthDate.Year;
+            if (PlayerAge is < 16)
+            {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        public Boolean isAlreadyRegistered(Player player)
+        {
+            var players = GetPlayers().Select(player => player.AsDto());
+            var exists=players.Any(x=>x.FirstName==player.FirstName&&x.LastName==player.LastName);
+            if(exists)
+            {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
     }
 }    
