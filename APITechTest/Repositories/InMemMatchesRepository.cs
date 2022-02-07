@@ -28,5 +28,21 @@ namespace APITechTest.Repositories
             return matches.SingleOrDefault(match => match.Id == id);
         }
 
+        public void CreateMatch(Match match)
+        {
+            matches.Add(match);
+        }
+
+        public void UpdateMatch(Match match)
+        {
+            var index = matches.FindIndex(existingMatch => existingMatch.Id == match.Id);
+            matches[index] = match;
+        }
+
+        public void DeleteMatch(Guid id)
+        {
+            var index = matches.FindIndex(existingMatch => existingMatch.Id == id);
+            matches.RemoveAt(index);
+        }
     }
 }

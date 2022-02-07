@@ -39,5 +39,57 @@ namespace APITechTest.Controllers
 
             return match.AsDto();
         }
+
+        // POST /matches
+        [HttpPost]
+        public ActionResult<MatchDto> CreateMatch(CreateMatchDto matchDto)
+        {
+            Match match = new()
+            {
+                Id = Guid.NewGuid(),
+                MatchDate = matchDto.MatchDate
+            };
+            
+        repository.CreateMatch(match);
+
+        return CreatedAtAction(nameof(GetMatch), new { id = match.Id}, match.AsDto());
+        }
+
+         // PUT /matches/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateMatch(Guid id, UpdateMatchDto matchDto)
+        {
+            var existingMatch = repository.GetMatch(id);
+
+            if (existingMatch is null)
+            {
+                return NotFound();
+            }
+
+            Match updatedMatch = existingMatch with 
+            {
+                MatchDate = matchDto.MatchDate
+            };
+
+            repository.UpdateMatch(updatedMatch);
+
+            return NoContent();
+        }
+
+        // DELETE /matches/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteMatch(Guid id)
+        {
+            var existingMatch = repository.GetMatch(id);
+
+            if (existingMatch is null)
+            {
+                return NotFound();
+            }
+
+            repository.DeleteMatch(id);
+
+            return NoContent();
+        }
     }
 }
