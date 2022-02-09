@@ -3,7 +3,7 @@ using APITechTest.Entities;
 
 namespace APITechTest
 {
-    public static class Extensions{
+    public static class Extensions{    // to avoid redundancy in the controllers
         public static PlayerDto AsDto(this Player player)
         {
             return new PlayerDto

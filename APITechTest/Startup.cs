@@ -27,8 +27,8 @@ namespace APITechTest
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IPlayersRepository, InMemPlayersRepository>();
-            services.AddSingleton<IMatchesRepository, InMemMatchesRepository>();
+            services.AddSingleton<IPlayersRepository, InMemPlayersRepository>();    // Singleton: is having one copy of the instance of a type across the entire lifetime of our services (Only one will be created and it will be reused wathever is needed)
+            services.AddSingleton<IMatchesRepository, InMemMatchesRepository>();    // line 30 and 31 is how you register your dependencies
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

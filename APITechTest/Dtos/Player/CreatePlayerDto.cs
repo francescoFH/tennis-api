@@ -5,7 +5,7 @@ namespace APITechTest.Dtos
 {
     public record CreatePlayerDto
     {
-        [Required]
+        [Required]    // Data annotation that returns 400 error if object required is null
         public string FirstName { get; init; }
         
         [Required]

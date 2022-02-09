@@ -64,7 +64,7 @@ namespace APITechTest.Repositories
             }
         };
 
-        public IEnumerable<Player> GetPlayers()
+        public IEnumerable<Player> GetPlayers()    // IEnumarabele: basic interface to return a collection of players
         {
             return players.OrderByDescending(x => x.Points);
         }
@@ -80,7 +80,7 @@ namespace APITechTest.Repositories
             
         public Player GetPlayer(Guid id)
         {
-            return players.SingleOrDefault(player => player.Id == id);
+            return players.SingleOrDefault(player => player.Id == id);   // SingleOrDefault: if it finds the player it will return it, if it doesn't it will return null
         }
 
         public void CreatePlayer(Player player)

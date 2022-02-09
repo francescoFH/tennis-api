@@ -11,7 +11,7 @@ namespace APITechTest.Controllers
     [Route("players")]
     public class PlayersController : ControllerBase
     {
-        private readonly IPlayersRepository repository;
+        private readonly IPlayersRepository repository;    
 
         public PlayersController(IPlayersRepository repository)
         {
@@ -28,7 +28,7 @@ namespace APITechTest.Controllers
         
         // GET /players/id
         [HttpGet("{id}")]
-        public ActionResult<PlayerDto> GetPlayer(Guid id)
+        public ActionResult<PlayerDto> GetPlayer(Guid id)    // ActionReasult: allows us to return more than one type from this metod (if and return)
         {
             var player = repository.GetPlayer(id);
 
@@ -69,7 +69,7 @@ namespace APITechTest.Controllers
                 LastName = playerDto.LastName,
                 Nationality = playerDto.Nationality,
                 BirthDate = playerDto.BirthDate,
-                Points = 1200,
+                Points = 1200,  // to move starting point outside controller
                 Games = 0               
             };
             
@@ -85,7 +85,7 @@ namespace APITechTest.Controllers
 
             repository.CreatePlayer(player);
 
-            return CreatedAtAction(nameof(GetPlayer), new { id = player.Id}, player.AsDto());
+            return CreatedAtAction(nameof(GetPlayer), new { id = player.Id}, player.AsDto());    // returns the player created
         }
 
         // PUT /players/{id}
@@ -105,8 +105,6 @@ namespace APITechTest.Controllers
                 LastName = playerDto.LastName,
                 Nationality = playerDto.Nationality,
                 BirthDate = playerDto.BirthDate
-                // Points = playerDto.Points,
-                // Games = playerDto.Games
             };
 
             if(repository.isAlreadyRegistered(updatedPlayer))
