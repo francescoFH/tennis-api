@@ -68,6 +68,12 @@ namespace APITechTest.Repositories
         {
             return players.OrderByDescending(x => x.Points);
         }
+
+        public Player GetPlayer(Guid id)
+        {
+            return players.SingleOrDefault(player => player.Id == id);   // SingleOrDefault: if it finds the player it will return it, if it doesn't it will return null - returns player whwere player.Id = id of the parameter
+        }
+
         public IEnumerable<Player> GetPlayersByNationality(String nationality)
         {
             return players.OrderByDescending(x => x.Points).Where(player => player.Nationality == nationality);
@@ -77,11 +83,6 @@ namespace APITechTest.Repositories
         {
             return players.OrderByDescending(x => x.Points).Where(player => player.GetRank() == rank);
         }        
-            
-        public Player GetPlayer(Guid id)
-        {
-            return players.SingleOrDefault(player => player.Id == id);   // SingleOrDefault: if it finds the player it will return it, if it doesn't it will return null
-        }
 
         public void CreatePlayer(Player player)
         {

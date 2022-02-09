@@ -69,7 +69,7 @@ namespace APITechTest.Controllers
                 LastName = playerDto.LastName,
                 Nationality = playerDto.Nationality,
                 BirthDate = playerDto.BirthDate,
-                Points = 1200,  // to move starting point outside controller
+                Points = 1200,    // to move starting point outside controller
                 Games = 0               
             };
             
@@ -85,7 +85,7 @@ namespace APITechTest.Controllers
 
             repository.CreatePlayer(player);
 
-            return CreatedAtAction(nameof(GetPlayer), new { id = player.Id}, player.AsDto());    // returns the player created
+            return CreatedAtAction(nameof(GetPlayer), new { id = player.Id}, player.AsDto());    // returns the player created in the response body
         }
 
         // PUT /players/{id}

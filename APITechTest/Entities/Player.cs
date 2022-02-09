@@ -2,7 +2,7 @@
 
 namespace APITechTest.Entities
 {
-    public record Player   // Record Types: classes with better support for immutable data models (once you get an intance of this object, it is not possible to modify it)
+    public record Player   // Record Types: classes with better support for immutable data models (once you get an instance of this object, it is not possible to modify it)
     {
         public Guid Id { get; init; }    // Init-only properties: You can use a creation expression to construct a new object (set) but you cannot modify after creation (private set).
 
@@ -18,7 +18,7 @@ namespace APITechTest.Entities
 
         public int Games { get; set; }
 
-        public string GetRank()
+        public string GetRank()  // move function outside Player entity?
         {
             if (Games < 3)
             {
