@@ -9,8 +9,8 @@ namespace APITechTest.Dtos
         public string LastName { get; init; }
         public string Nationality { get; init; }
         public DateTime BirthDate { get; init; }
-        public int Points { get; init; }
-        public int Games { get; init; }
+        public int Points { get; set; }
+        public int Games { get; set; }
         public string Rank { get; init; }
     }
 }

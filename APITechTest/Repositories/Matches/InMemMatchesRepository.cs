@@ -8,15 +8,7 @@ namespace APITechTest.Repositories
 
     public class InMemMatchesRepository : IMatchesRepository
     {
-        private readonly List<Match> matches = new()
-        {
-
-            new Match
-            {
-                Id = Guid.NewGuid(),
-                MatchDate = DateTime.Parse("2021-05-22")
-            }
-        };
+        private readonly List<Match> matches = new();
 
         public IEnumerable<Match> GetMatches()
         {
@@ -43,6 +35,12 @@ namespace APITechTest.Repositories
         {
             var index = matches.FindIndex(existingMatch => existingMatch.Id == id);
             matches.RemoveAt(index);
+        }
+
+        public int CalculatePoints(int points)
+        {
+            var newPoints = points * 0.10;
+            return (int)newPoints;
         }
     }
 }

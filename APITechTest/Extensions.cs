@@ -24,6 +24,8 @@ namespace APITechTest
             return new MatchDto
             {
                 Id = match.Id,
+                WinnerId = match.WinnerId,
+                LooserId = match.LooserId,
                 MatchDate = match.MatchDate
             };
         }

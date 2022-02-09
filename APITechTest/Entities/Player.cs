@@ -14,9 +14,9 @@ namespace APITechTest.Entities
 
         public DateTime BirthDate { get; init; }
 
-        public int Points { get; init; }
+        public int Points { get; set; }
 
-        public int Games { get; init; }
+        public int Games { get; set; }
 
         public string GetRank()
         {

@@ -9,5 +9,5 @@ public interface IMatchesRepository
     void CreateMatch(Match match);
     void UpdateMatch(Match match);
     void DeleteMatch(Guid id);
-
+    int CalculatePoints(int points);
 }
