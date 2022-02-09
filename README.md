@@ -34,16 +34,20 @@ Supersonic Legend | 10000 - no limit
 - The players should be ordered by points (descending) ✅
  - The unranked players should also be ordered by points (descending) but should appear at the bottom of the list, below all other ranks ✅
 
-## To Implement:
-3. An endpoint for registering a match that has been played
-- It should require to provide the winner and the loser of the match
-- The loser gives the winner 10% of his points from before the match (rounded down)
+3. To extract logic from the player-controller, such as the function to check uniqueness First Name/Last Name and function to check minimum age allowed ✅
+
+4. An endpoint for registering a match that has been played ✅
+- It should require to provide the winner and the loser of the match ✅
+- The loser gives the winner 10% of his points from before the match (rounded down) ✅
  - For example, if Luca (1000 points) wins a match against Brendan (900 points), Luca should end up with 1090 points after the game and Brendan with 810
  - If Daniel (700 points) wins a match against James (1200 points), Daniel should end up with 820 points after the game and James with 1080
+
+## To Implement:
+
 - The business logic behind calculating new player scores after a match should be unit-tested
 
-4. **Database** - To obtained an MVP of my project to present on time, I decided to use an "InMemoryRepository" for tennis players. I will implement a simple MongoDB repository after completing point 3.
-5. To extract logic from the player-controller, such as the function to check uniqueness First Name/Last Name and function to check minimum age allowed ✅
+5. **Database** - To obtained an MVP of my project to present on time, I decided to use an "InMemoryRepository" for tennis players. I will implement a simple MongoDB repository after completing point 3.
+
 
 How to Run the API(Locally)
 ----
